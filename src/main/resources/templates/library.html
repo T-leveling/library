@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste</title>
+</head>
+<body>
+<p data-th-text="${#ctx.session.currentUser != null} ? ${#ctx.session.currentUser} : 'Non connecté!'"/>
+<h1>Liste des livres</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Nombre de pages</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="book : ${books}">
+        <td data-th-text="${book.title}"></td>
+        <td data-th-text="${book.description}"></td>
+        <td data-th-text="${book.nbPages}"></td>
+    </tr>
+    </tbody>
+
+</table>
+<a data-th-href="@{/}">Accueil</a>
+</body>
+</html>
